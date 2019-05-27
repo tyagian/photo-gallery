@@ -58,12 +58,20 @@ func notFound(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
+
+	//homeView = NewView("view/home.gohtml")
 	var err error
-	homeTemplate, err = template.ParseFiles("views/home.gothml")
+	homeTemplate, err = template.ParseFiles(
+		"views/home.gothml",
+		"views/layouts/footer.gohtml",
+		)
 	if err != nil {
 		panic(err)
 	}
-	contactTemplate, err = template.ParseFiles("views/contact.gohtml")
+	contactTemplate, err = template.ParseFiles(
+		"views/contact.gohtml",
+		"views/layouts/footer.gohtml",
+		)
 	if err != nil {
 		panic(err)
 	}
